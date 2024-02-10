@@ -9,38 +9,35 @@ function getComputerChoice(): string {
 }
 
 
+function game() {
 
+  function playRound(playerSelection :string | undefined , computerSelection : string) {
 
-function game() {  
-
-  for (let i = 0; i < 5; i++) {
-
-    let input: string | null = prompt('Choose rock, paper or scissor');
-
-    const playerSelection = input?.toLowerCase();
-    const computerSelection = getComputerChoice();
+    let input: string | null = prompt('Choose rock, paper or scissors');
+    playerSelection = input?.toLowerCase();
+    computerSelection = getComputerChoice();
     
     const computerWins = `Computer Wins! ${computerSelection} beats ${playerSelection}.`;
     const playerWins = `Player wins! ${playerSelection} beats ${computerSelection}.`;
     const tie = `It's a tie, ${playerSelection} is equal to ${computerSelection}.`;
     
-    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissor') {
-      i -= 1;
-      console.log('Nice try! Please enter a valid input.');
+    if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
+      return ('Nice try! Please enter a valid input.');
     }
-    if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection=== 'rock') {
-            computerScore+=1;
-        console.log(computerWins);
-    } 
-    if (playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissor' && computerSelection=== 'paper' || playerSelection === 'rock' && computerSelection === 'scissor') {
-        playerScore+=1;
-        console.log(playerWins);
-    } else if (playerSelection === computerSelection) {
-          console.log(tie);
-          }
-  }
-  console.log(`Computer:${computerScore} vs Player:${playerScore}`);
+    else if ( playerSelection === 'rock' && computerSelection === 'paper' 
+              || playerSelection === 'scissors' && computerSelection === 'rock' 
+              || playerSelection === 'paper' && computerSelection === 'scissors') {
+      return computerWins;
+    }    else if (playerSelection === 'rock' && computerSelection === 'scissors' 
+                  || playerSelection === 'paper' && computerSelection === 'rock'
+                  || playerSelection === 'scissors' && computerSelection === 'paper')
+     {
+      return playerWins
 }
+        else if (playerSelection === computerSelection) {
+          return tie;
+          }
+    }
 
 
-game();
+  }
