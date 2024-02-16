@@ -1,5 +1,19 @@
+body {
+    font-family: 'Roboto', sans-serif !important;
+    background-color: #6A7373;
+}
 
-.navbar .bg-body-tertiary {
-    background-color: #C4501E 
+#mainNav {
+    border: solid 10px #2E2E27;
+}
+
+
+
+.list-group {
+    background-color: #2E2E27;
+    margin: 80px 40px;
+    border: solid 5px #2E2E27;
+    padding: 10px;
+    max-width: fit-content;
 }
 
