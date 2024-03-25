@@ -8,8 +8,7 @@ function getComputerChoice(): string {
   return result;
 }
 
-
-const result: any = document.getElementById('scoreText');
+const result: HTMLElement | null = document.getElementById('scoreText');
 
 function playRound(playerSelection: string, computerSelection: string) {
   // Get the computer's choice
@@ -21,7 +20,9 @@ function playRound(playerSelection: string, computerSelection: string) {
     (playerSelection === 'paper' && computerSelection === 'scissors')
   ) {
     // Computer wins
-    result.textContent = "Computer wins! " + computerSelection + " beats " + playerSelection + ".";
+    if (result) {
+      result.textContent = "Computer wins! " + computerSelection + " beats " + playerSelection + ".";
+    }
     computerScore++;
   } else if (
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
@@ -29,17 +30,25 @@ function playRound(playerSelection: string, computerSelection: string) {
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
     // Player wins
-    result.textContent = "Player wins! " + playerSelection + " beats " + computerSelection + ".";
+    if (result) {
+      result.textContent = "Player wins! " + playerSelection + " beats " + computerSelection + ".";
+    }
     playerScore++;
   } else {
     // It's a tie
-    result.textContent = "It's a tie.";
+    if (result) {
+      result.textContent = "It's a tie.";
+    }
   }
 
   // Update the displayed scores
-  const playerScoreNumber: any = document.getElementById('playerScoreNumber');
-  playerScoreNumber.textContent = playerScore.toString();
+  const playerScoreNumber: HTMLElement | null = document.getElementById('playerScoreNumber');
+  if (playerScoreNumber) {
+    playerScoreNumber.textContent = computerScore.toString();
 
-  const computerScoreNumber: any = document.getElementById('computerScoreNumber');
-  computerScoreNumber.textContent = computerScore.toString();
+  const computerScoreNumber: HTMLElement | null = document.getElementById('computerScoreNumber');
+  if (computerScoreNumber) {
+    computerScoreNumber.textContent = computerScore.toString();
+  }
+}
 }

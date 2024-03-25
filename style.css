@@ -1,13 +1,42 @@
 body {
     font-family: 'Roboto', sans-serif !important;
     background-color: #6A7373;
+    color: #fff;
 }
 
 #mainNav {
     border: solid 10px #2E2E27;
+    background-color: #2E2E27;
 }
 
+.navbar-brand > img {
+    height: 200px !important;
+    width: auto !important; 
+    object-fit: contain;
+}
 
+.card {
+    background-color: #2E2E27;
+    color: #fff;
+}
+
+.card img {
+    max-height: 200px;
+}
+
+.card .btn {
+    margin-top: 20px;
+}
+
+.container .row .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .row .col .btn {
+    margin-top: 20px;
+}
 
 .list-group {
     background-color: #2E2E27;
@@ -17,3 +46,25 @@ body {
     max-width: fit-content;
 }
 
+.list-group-item {
+    background-color: #6A7373;
+    color: #fff;
+}
+
+@media (max-width: 428px) {
+    .navbar-brand > img {
+        height: 15vh !important; 
+    }
+
+    .card img {
+        max-height: 15vh; 
+    }
+
+    .container .row .col {
+        flex-direction: row;
+    }
+
+    .list-group {
+        margin: 20px 10px;
+    }
+}
