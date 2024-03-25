@@ -13,23 +13,33 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === 'scissors' && computerSelection === 'rock') ||
         (playerSelection === 'paper' && computerSelection === 'scissors')) {
         // Computer wins
-        result.textContent = "Computer wins! " + computerSelection + " beats " + playerSelection + ".";
+        if (result) {
+            result.textContent = "Computer wins! " + computerSelection + " beats " + playerSelection + ".";
+        }
         computerScore++;
     }
     else if ((playerSelection === 'rock' && computerSelection === 'scissors') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissors' && computerSelection === 'paper')) {
         // Player wins
-        result.textContent = "Player wins! " + playerSelection + " beats " + computerSelection + ".";
+        if (result) {
+            result.textContent = "Player wins! " + playerSelection + " beats " + computerSelection + ".";
+        }
         playerScore++;
     }
     else {
         // It's a tie
-        result.textContent = "It's a tie.";
+        if (result) {
+            result.textContent = "It's a tie.";
+        }
     }
     // Update the displayed scores
     var playerScoreNumber = document.getElementById('playerScoreNumber');
-    playerScoreNumber.textContent = playerScore.toString();
-    var computerScoreNumber = document.getElementById('computerScoreNumber');
-    computerScoreNumber.textContent = computerScore.toString();
+    if (playerScoreNumber) {
+        playerScoreNumber.textContent = computerScore.toString();
+        var computerScoreNumber = document.getElementById('computerScoreNumber');
+        if (computerScoreNumber) {
+            computerScoreNumber.textContent = computerScore.toString();
+        }
+    }
 }
